@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Version=1.0
-Name=Bazaar Explorer
-GenericName=Version Control GUI
-Comment=GUI application for using Bazaar
-Icon=${SNAP}/usr/share/pixmaps/bzr-explorer-snap.png
-Exec=bzr-explorer
-Categories=Development;RevisionControl;
