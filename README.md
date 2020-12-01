@@ -1,7 +1,8 @@
-# bzr-explorer-snap
-Snap of desktop application Bazaar Explorer for using the Bazaar Version Control System
+# gnash-snap
+Snap of desktop application Gnash for Ubuntu systems > 18.04
 
-https://launchpad.net/bzr-explorer
+https://www.gnu.org/software/gnash/
 
-Until I can get classic snap approved and uploaded to the snap store you can download snap from https://github.com/philroche/bzr-explorer-snap/releases/ and run `sudo snap install --dangerous --classic ./bzr-explorer_0.1_amd64.snap`
+Until I can get classic snap approved and uploaded to the snap store you can download snap from https://github.com/raymiiorg/gnash-snap/releases/ and run `sudo snap install --dangerous --classic ./gnash_0.1_amd64.snap`
 
+Based on this article: https://philroche.net/2020/10/08/using-snaps-to-package-old-software/
