@@ -3,7 +3,6 @@ base: core18
 version: '0.8.11' 
 summary: GNU Gnash is the GNU Flash movie player
 description: |
-  
   GNU Gnash is the GNU Flash movie player — Flash is an animation 
   file format pioneered by Macromedia which continues to be 
   supported by their successor company, Adobe. Flash has been 
@@ -26,22 +25,23 @@ parts:
     stage:
       - usr/bin/wrapper
       - usr/share/applications/gnash-snap.desktop
-      - usr/share/pixmaps/gnash-snap.png
+      - usr/share/pixmaps/gnash.png
     organize:
       wrapper: usr/bin/wrapper
       gnash-snap.desktop: usr/share/applications/gnash-snap.desktop
-      gnash-snap.png: usr/share/pixmaps/gnash-snap.png
+      gnash-snap.png: usr/share/pixmaps/gnash.png
   gnash:
     plugin: nil
     override-build: |
       snapcraftctl build
     stage-packages: 
       - gnash
+      - gnash-common
 
 apps:
   gnash:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
       PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
-    desktop: usr/share/applications/gnash-snap.desktop
+    desktop: usr/share/applications/gnash.desktop
     command: wrapper
