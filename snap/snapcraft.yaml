@@ -1,47 +1,47 @@
-name: bzr-explorer 
+name: gnash
 base: core18 
-version: '0.1' 
-summary: Desktop application for using the Bazaar Version Control System 
+version: '0.8.11' 
+summary: GNU Gnash is the GNU Flash movie player
 description: |
-  Bazaar Explorer is a desktop application for using the Bazaar Version Control 
-  System. It provides a high level interface to all commonly used features, 
-  launching "applets" from the QBzr plug-in to provide most of the functionality. 
-  Alternatively, the applets from the bzr-gtk plug-in can be used if it is 
-  installed. Bazaar Explorer runs on GNOME, KDE, Windows, Mac OS X and FreeBSD.
+  
+  GNU Gnash is the GNU Flash movie player — Flash is an animation 
+  file format pioneered by Macromedia which continues to be 
+  supported by their successor company, Adobe. Flash has been 
+  extended to include audio and video content, and programs written 
+  in ActionScript, an ECMAScript-compatible language. Gnash is 
+  based on GameSWF, and supports most SWF v7 features and some 
+  SWF v8 and v9.  SWF v10 is not supported by GNU Gnash.
 
 grade: stable 
 confinement: classic 
 
 parts:  
-  bzr-explorer-wrapper:
+  gnash-wrapper:
     plugin: dump
     source: snap/local
     override-build: |
       chmod +x wrapper
-      chmod +x bzr-explorer-snap.desktop
+      chmod +x gnash-snap.desktop
       snapcraftctl build
     stage:
       - usr/bin/wrapper
-      - usr/share/applications/bzr-explorer-snap.desktop
-      - usr/share/pixmaps/bzr-explorer-snap.png
+      - usr/share/applications/gnash-snap.desktop
+      - usr/share/pixmaps/gnash-snap.png
     organize:
       wrapper: usr/bin/wrapper
-      bzr-explorer-snap.desktop: usr/share/applications/bzr-explorer-snap.desktop
-      bzr-explorer-snap.png: usr/share/pixmaps/bzr-explorer-snap.png
-  bzr-explorer:
+      gnash-snap.desktop: usr/share/applications/gnash-snap.desktop
+      gnash-snap.png: usr/share/pixmaps/gnash-snap.png
+  gnash:
     plugin: nil
     override-build: |
       snapcraftctl build
-      cp -v $SNAPCRAFT_PART_INSTALL/usr/bin/bzr.bzr $SNAPCRAFT_PART_INSTALL/usr/bin/bzr
-      chmod +x $SNAPCRAFT_PART_INSTALL/usr/bin/bzr
     stage-packages: 
-      - bzr
-      - bzr-explorer
+      - gnash
 
 apps:
-  bzr-explorer:
+  gnash:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
       PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
-    desktop: usr/share/applications/bzr-explorer-snap.desktop
+    desktop: usr/share/applications/gnash-snap.desktop
     command: wrapper
