@@ -14,6 +14,8 @@ Gnash homepage: https://www.gnu.org/software/gnash/
 
 My homepage: https://raymii.org
 
+Snap store page: https://snapcraft.io/gnash-raymii
+
 Install via the snap store:
 
 	snap install gnash-raymii
