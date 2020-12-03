@@ -1,9 +1,9 @@
-name: gnash
+name: gnash-raymii
 base: core18 
 version: '0.8.11' 
 summary: GNU Gnash is the GNU Flash movie player
 description: |
-  GNU Gnash is the GNU Flash movie player — Flash is an animation 
+  GNU Gnash is the GNU Flash movie player - Flash is an animation 
   file format pioneered by Macromedia which continues to be 
   supported by their successor company, Adobe. Flash has been 
   extended to include audio and video content, and programs written 
@@ -12,7 +12,7 @@ description: |
   SWF v8 and v9.  SWF v10 is not supported by GNU Gnash.
 
 grade: stable 
-confinement: classic 
+confinement: strict 
 
 parts:  
   gnash-wrapper:
@@ -25,11 +25,9 @@ parts:
     stage:
       - usr/bin/wrapper
       - usr/share/applications/gnash-snap.desktop
-      - usr/share/pixmaps/gnash.png
     organize:
       wrapper: usr/bin/wrapper
       gnash-snap.desktop: usr/share/applications/gnash-snap.desktop
-      gnash-snap.png: usr/share/pixmaps/gnash.png
   gnash:
     plugin: nil
     override-build: |
@@ -37,11 +35,22 @@ parts:
     stage-packages: 
       - gnash
       - gnash-common
+      - libgl1
+      - libslang2
 
 apps:
   gnash:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
       PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
     desktop: usr/share/applications/gnash.desktop
     command: wrapper
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy
