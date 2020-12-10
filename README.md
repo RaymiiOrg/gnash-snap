@@ -1,6 +1,11 @@
 # gnash snap
 
+[![gnash-raymii](https://snapcraft.io/gnash-raymii/badge.svg)](https://snapcraft.io/gnash-raymii)
+[![gnash-raymii](https://snapcraft.io/gnash-raymii/trending.svg?name=0)](https://snapcraft.io/gnash-raymii)
+
 Snap of desktop application Gnash for Ubuntu systems > 18.04
+
+
 
 > GNU Gnash is the GNU Flash movie player - Flash is an animation 
 file format pioneered by Macromedia which continues to be 
