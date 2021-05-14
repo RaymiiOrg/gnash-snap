@@ -1,7 +1,8 @@
 name: gnash-raymii
 base: core18 
-version: '0.8.11' 
+version: '0.8.11-1' 
 summary: GNU Gnash is the GNU Flash movie player
+icon: snap/gui/gnash.png
 description: |
   GNU Gnash is the GNU Flash movie player - Flash is an animation 
   file format pioneered by Macromedia which continues to be 
@@ -15,37 +16,41 @@ grade: stable
 confinement: strict 
 
 parts:  
-  gnash-wrapper:
+  gnash-raymii:
     plugin: dump
     source: snap/local
     override-build: |
-      chmod +x wrapper
+      chmod +x gnash-wrapper
       chmod +x gnash-snap.desktop
       snapcraftctl build
     stage:
-      - usr/bin/wrapper
+      - usr/bin/gnash-wrapper
       - usr/share/applications/gnash-snap.desktop
     organize:
-      wrapper: usr/bin/wrapper
+      gnash-wrapper: usr/bin/gnash-wrapper
       gnash-snap.desktop: usr/share/applications/gnash-snap.desktop
-  gnash:
+  gnash-raymii:
     plugin: nil
     override-build: |
       snapcraftctl build
     stage-packages: 
       - gnash
       - gnash-common
+      - python-gtk-gnash
+      - gnash-cygnal
+      - gnash-tools
       - libgl1
       - libslang2
+      - libglu1-mesa
+      - freeglut3
 
 apps:
-  gnash:
+  gnash-raymii:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
       PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
       LANG: C.UTF-8
-    desktop: usr/share/applications/gnash.desktop
-    command: wrapper
+    command: usr/bin/gnash
     plugs:
       - home
       - network
@@ -54,3 +59,102 @@ apps:
       - alsa
       - desktop
       - desktop-legacy
+  gtk-gnash:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    desktop: usr/share/applications/gnash.desktop
+    command: usr/bin/gtk-gnash
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy      
+  dump-gnash:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/dump-gnash
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy      
+  cygnal:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/cygnal
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy   
+  flvdumper:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/flvdumper
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy   
+  rtmpget:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/rtmpget
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy   
+  soldumper:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/soldumper
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy   
+  gprocessor:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/gprocessor
+    plugs:
+      - home
+      - network
+      - audio-playback
+      - x11
+      - alsa
+      - desktop
+      - desktop-legacy   

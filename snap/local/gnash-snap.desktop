@@ -5,5 +5,5 @@ Name=Gnash
 GenericName=Gnash
 Comment=GNU Gnash is the GNU Flash movie player
 Icon=${SNAP}/usr/share/pixmaps/gnash.xpm
-Exec=gnash
+Exec=gtk-gnash
 Categories=Development;Multimedia;
