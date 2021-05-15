@@ -34,7 +34,7 @@ Install via the snap store:
 
 Or locally, clone this git repo and install the snap:
 
- 	sudo snap install --dangerous gnash-raymii_0.8.11-1_amd64.snap
+ 	sudo snap install --dangerous gnash-raymii_0.8.11-2_amd64.snap
 
 Based on this article: https://philroche.net/2020/10/08/using-snaps-to-package-old-software/
 
