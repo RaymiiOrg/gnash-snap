@@ -3,10 +3,10 @@
 [![gnash-raymii](https://snapcraft.io/gnash-raymii/badge.svg)](https://snapcraft.io/gnash-raymii)
 [![gnash-raymii](https://snapcraft.io/gnash-raymii/trending.svg?name=0)](https://snapcraft.io/gnash-raymii)
 
-Snap of desktop application Gnash for Ubuntu systems > 18.04
+Snap of desktop application Gnash for Ubuntu systems > 18.04. This is the Ubuntu 18.04 version re-packaged
+as a snap because Ubuntu 20.04 and onwards no longer ship gnash in the apt repository.
 
 Includes gnash related command like `cygnal`, `dump-gnash` and `flvdumper`.
-
 
 To use `gnash` on the command-line you can use use the command `gnash-raymii ~/flash-file.swf`.
 To use the commands you must prefix them with the snap name. (`gnash-raymii.dump-gnash`). 
