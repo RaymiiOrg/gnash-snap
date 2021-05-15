@@ -1,6 +1,6 @@
 name: gnash-raymii
 base: core18 
-version: '0.8.11-1' 
+version: '0.8.11-2' 
 summary: GNU Gnash is the GNU Flash movie player
 icon: snap/gui/gnash.png
 description: |
@@ -59,13 +59,12 @@ apps:
       - alsa
       - desktop
       - desktop-legacy
-  gtk-gnash:
+  gnash:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
       PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
       LANG: C.UTF-8
-    desktop: usr/share/applications/gnash.desktop
-    command: usr/bin/gtk-gnash
+    command: usr/bin/gnash
     plugs:
       - home
       - network
@@ -73,7 +72,7 @@ apps:
       - x11
       - alsa
       - desktop
-      - desktop-legacy      
+      - desktop-legacy
   dump-gnash:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH

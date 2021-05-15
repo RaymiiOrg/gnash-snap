@@ -7,8 +7,10 @@ Snap of desktop application Gnash for Ubuntu systems > 18.04
 
 Includes gnash related command like `cygnal`, `dump-gnash` and `flvdumper`.
 
-To use the commands you must prefix them with the snap name. (`gnash-raymii.dump-gnash`). 
+
 To use `gnash` on the command-line you can use use the command `gnash-raymii ~/flash-file.swf`.
+To use the commands you must prefix them with the snap name. (`gnash-raymii.dump-gnash`). 
+
 
 > GNU Gnash is the GNU Flash movie player - Flash is an animation 
 file format pioneered by Macromedia which continues to be 
@@ -42,13 +44,16 @@ Based on this article: https://philroche.net/2020/10/08/using-snaps-to-package-o
 No new version of gnash will come out since development stopped around 2011, this is 
 the changelog of the snap.
 
+## 0.8.11-2
+
+- Add back `gnash-raymii.gnash` binary name for scripts that use it
+
 ## 0.8.11-1
 
 - `gnash-raymii` is now the main package name and command (no longer required to write `gnash-raymii.gnash`)
 - Added PNG icon
 - Rewrote the `snapcraft.yml` file to expose more gnash commands:
 - `dump-gnash`
-- `gtk-gnash`
 - `cygnal` 
 - `rtmpget`
 - `gprocessor`
